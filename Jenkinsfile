@@ -1,4 +1,4 @@
-node {
+node('node-latest') {
     stage('Build') {
         sh  'npm install'
     }
