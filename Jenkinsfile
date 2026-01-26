@@ -1,3 +1,4 @@
+//Jenkinsfile dengan scripted pipeline
 node {
     stage('Check directory') {
         //stage ini saya buat karena pada build sebelumnya file package.json tidak terbaca oleh Jenkins
