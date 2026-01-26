@@ -1,5 +1,6 @@
 node {
-    stage('Preparation') {
+    stage('Check directory') {
+        sh  'git config --global --add safe.directory "*"'
         sh  'ls -l'
     }
     nodejs('node-latest') {
