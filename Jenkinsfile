@@ -1,5 +1,6 @@
 node {
     stage('Check directory') {
+        checkout scm
         sh  'git config --global --add safe.directory "*"'
         sh  'ls -l'
     }
