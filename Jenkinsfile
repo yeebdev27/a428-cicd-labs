@@ -27,11 +27,16 @@ pipeline {
     agent {
         docker {
             image 'node:16-buster-slim'
-            args '-p 3000:3000'
+            args '-u root:root -p 3000:3000'
         }
     }
     stages {
-        checkout scm
+        stage('Checkout') {
+            steps {
+                checkout scm
+                sh  'git config --global --add safe.directory "*"'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'npm install'
