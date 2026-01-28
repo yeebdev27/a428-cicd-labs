@@ -22,7 +22,7 @@
 //     }
 // }
 
-declarative pipeline
+//declarative pipeline
 pipeline {
         agent {
             docker {
