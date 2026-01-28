@@ -31,11 +31,6 @@ pipeline {
         }
     }
     stages {
-        stage('Fix Permissions') {
-            steps {
-                sh 'chown -R root:root .'
-            }
-        }
         stage('Checkout') {
             steps {
                 checkout scm
