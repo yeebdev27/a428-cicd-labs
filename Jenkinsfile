@@ -31,12 +31,6 @@ pipeline {
         }
     }
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-                sh  'git config --global --add safe.directory "*"'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'npm install'
