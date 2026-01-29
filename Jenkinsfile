@@ -10,6 +10,7 @@ pipeline {
     }
     stages {
         stage('Fix and Checkout') {
+            //stage ini dibuat karena pada build sebelumnya git repository tidak terbaca oleh jenkins
             steps {
                 deleteDir()  
                 sh 'git config --global --add safe.directory /var/jenkins_home/workspace/react-app'  
