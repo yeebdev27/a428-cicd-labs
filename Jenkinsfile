@@ -33,11 +33,10 @@ pipeline {
     stages {
         stage('Fix and Checkout') {
             steps {
+                checkout scm
                 deleteDir()
-                
                 sh "git config --global --add safe.directory /var/jenkins_home/workspace/react-app"
                 
-                checkout scm
             }
         }
         stage('Build') {
