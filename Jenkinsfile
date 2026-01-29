@@ -1,24 +1,24 @@
-//declarative pipeline
 pipeline {
     agent {
         docker {
             image 'node:16'
-            args '-p 3001:3001'
+            args '-p 3001:3001'  
         }
     }
-    // options {
-    //     skipDefaultCheckout()  
-    // }
+    options {
+        skipDefaultCheckout()  
+    }
     stages {
         stage('Fix and Checkout') {
             steps {
                 deleteDir()  
+                sh 'git config --global --add safe.directory /var/jenkins_home/workspace/react-app'  
                 checkout scm  
             }
         }
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'npm install'  
             }
         }
         stage('Test') {
