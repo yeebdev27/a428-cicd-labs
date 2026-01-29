@@ -31,6 +31,13 @@ pipeline {
         }
     }
     stages {
+        stage('Fix and Checkout') {
+            steps {
+                sh "git config --global --add safe.directory ${WORKSPACE}"
+                
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
                 sh 'npm install'
