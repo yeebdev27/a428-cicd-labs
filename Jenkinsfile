@@ -6,9 +6,9 @@ pipeline {
             args '-p 3001:3001'
         }
     }
-    options {
-        skipDefaultCheckout()  
-    }
+    // options {
+    //     skipDefaultCheckout()  
+    // }
     stages {
         stage('Fix and Checkout') {
             steps {
