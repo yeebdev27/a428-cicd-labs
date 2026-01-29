@@ -30,13 +30,15 @@ pipeline {
             args '-p 3000:3000'
         }
     }
+    options {
+        skipDefaultCheckout()  
+    }
     stages {
         stage('Fix and Checkout') {
             steps {
-                checkout scm
-                deleteDir()
-                sh "git config --global --add safe.directory /var/jenkins_home/workspace/react-app"
-                
+                deleteDir()  
+                checkout scm  
+                sh "git config --global --add safe.directory /var/jenkins_home/workspace/react-app"  
             }
         }
         stage('Build') {
@@ -51,9 +53,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh'./jenkins/scripts/deliver.sh'
-                input message:'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
-                sh'./jenkins/scripts/kill.sh'
+                sh './jenkins/scripts/deliver.sh'
+                input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
+                sh './jenkins/scripts/kill.sh'
             }
         }
     }
